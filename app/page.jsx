@@ -17,7 +17,7 @@ export default function Home() {
       </h3>
       <div className="flex flex-col mt-10">
         {getItems && getItems?.map(item => (
-          <Items/>
+          <Items key={item.id} name={item.name} price={item.price}/>
         ))}
       </div>
     </div>
