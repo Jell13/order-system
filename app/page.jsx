@@ -1,7 +1,11 @@
-import Image from "next/image";
+
 
 export default function Home() {
   return (
-    <div></div>
+    <div className="">
+      <h1 className="">
+        IFGF OC Cafe
+      </h1>
+    </div>
   );
 }

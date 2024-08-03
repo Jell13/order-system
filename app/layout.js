@@ -1,7 +1,18 @@
-import { Inter } from "next/font/google";
+import { Inter, Edu_VIC_WA_NT_Beginner } from "next/font/google";
 import "./globals.css";
+import { ConvexClientProvider } from "@/providers/ConvexClientProviders";
+import Navbar from "./components/Navbar";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: '--font-normal'
+});
+
+const edu = Edu_VIC_WA_NT_Beginner({
+  subsets: ['latin'],
+  weight: ['400','500', '600', '700'],
+  variable: '--font-edu'
+})
 
 export const metadata = {
   title: "Create Next App",
@@ -11,7 +22,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${edu.className} ${inter.className} bg-[#D9BF93]`}>
+        <ConvexClientProvider>
+          <div className="h-24 w-full">
+            <Navbar/>
+          </div>
+          {children}
+        </ConvexClientProvider>
+      </body>
     </html>
   );
 }
