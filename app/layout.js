@@ -1,4 +1,4 @@
-import { Inter, Edu_VIC_WA_NT_Beginner } from "next/font/google";
+import { Inter, Gloria_Hallelujah } from "next/font/google";
 import "./globals.css";
 import { ConvexClientProvider } from "@/providers/ConvexClientProviders";
 import Navbar from "./components/Navbar";
@@ -8,9 +8,9 @@ const inter = Inter({
   variable: '--font-normal'
 });
 
-const edu = Edu_VIC_WA_NT_Beginner({
+const gloria = Gloria_Hallelujah({
   subsets: ['latin'],
-  weight: ['400','500', '600', '700'],
+  weight: ['400'],
   variable: '--font-edu'
 })
 
@@ -22,7 +22,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${edu.className} ${inter.className} bg-[#D9BF93]`}>
+      <body className={`${gloria.className} ${inter.className} bg-[#D9BF93]`}>
         <ConvexClientProvider>
           <div className="h-24 w-full">
             <Navbar/>
