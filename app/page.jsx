@@ -15,9 +15,9 @@ export default function Home() {
       <h3 className="text-3xl">
         Menu
       </h3>
-      <div className="flex flex-col mt-10">
+      <div className="grid md:grid-cols-2 grid-cols-1 gap-5 mt-10">
         {getItems && getItems?.map(item => (
-          <Items key={item.id} name={item.name} price={item.price}/>
+          <Items key={item.id} name={item.name} price={item.price} image={item.imageUrl}/>
         ))}
       </div>
     </div>

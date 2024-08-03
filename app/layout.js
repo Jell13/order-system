@@ -22,7 +22,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${gloria.className} ${inter.className} bg-[#D9BF93]`}>
+      <body className={`${gloria.className} ${inter.className} bg-[#D9BF9E]`}>
         <ConvexClientProvider>
           <div className="h-24 w-full">
             <Navbar/>

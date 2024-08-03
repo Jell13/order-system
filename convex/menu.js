@@ -6,6 +6,7 @@ export const getMenu = query({
     handler: async (ctx) => {
         
         const menuItems = await ctx.db.query('menu').collect()
+        console.log(menuItems)
 
         return menuItems
     }
