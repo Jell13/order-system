@@ -27,7 +27,9 @@ export default function RootLayout({ children }) {
           <div className="h-24 w-full">
             <Navbar/>
           </div>
-          {children}
+          <div className="h-[calc(100vh-96px)] w-full">
+            {children}
+          </div>
         </ConvexClientProvider>
       </body>
     </html>
