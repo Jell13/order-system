@@ -14,7 +14,7 @@ const Items = ({id, name, price, image, addItem}) => {
         <p className='bg-[#F5C5AA] px-8 py-1 rounded-xl'>
           ${price}.00
         </p>
-        <button className='px-2 py-1 bg-[#F5C5AA] rounded-xl' onClick={() => addItem(name,price)}>Add to cart</button>
+        <button className='px-2 py-1 bg-[#F5C5AA] rounded-xl' onClick={() => addItem(name,price,image)}>Add to cart</button>
       </div>
       
     </div>

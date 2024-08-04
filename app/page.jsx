@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 export default function Home() {
 
   const getItems = useQuery(api.menu.getMenu)
-  const makeCart = useMutation(api.cart.makeCart)
+  const makeOrder = useMutation(api.cart.makeOrders)
 
   const[cart, setCart] = useState([])
   const[name, setName] = useState("")
@@ -18,8 +18,8 @@ export default function Home() {
 
   const router = useRouter()
 
-  const addItem = async(item,price) => {
-    setCart([...cart, {item,price}])
+  const addItem = async(item,price,image) => {
+    setCart([...cart, {item,price,image}])
     setTotal(total + price)
   }
 
@@ -29,10 +29,10 @@ export default function Home() {
   }
 
   const handleSubmit = async () => {
-    makeCart({
+    makeOrder({
       name: name,
       items: cart,
-      total: total
+      total: total, 
     })
     router.push("/thankyou")
   }
@@ -50,7 +50,7 @@ export default function Home() {
       </h3>
       <div className="grid md:grid-cols-2 grid-cols-1 gap-5 mt-10">
         {getItems && getItems?.map(item => (
-          <Items key={item.id} id={item.id} name={item.name} price={item.price} image={item.imageUrl} addItem={addItem}/>
+          <Items key={item._id} id={item._id} name={item.name} price={item.price} image={item.imageUrl} addItem={addItem}/>
         ))}
       </div>
       <div className="flex flex-col gap-8 mt-10">
