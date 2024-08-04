@@ -1,19 +1,22 @@
 "use client"
 
 import { api } from "@/convex/_generated/api";
-import { useQuery } from "convex/react";
+import { useMutation, useQuery } from "convex/react";
 import Items from "./components/Items";
 import { RxCross2 } from "react-icons/rx";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
 
   const getItems = useQuery(api.menu.getMenu)
+  const makeCart = useMutation(api.cart.makeCart)
 
   const[cart, setCart] = useState([])
   const[name, setName] = useState("")
   const[total, setTotal] = useState(0)
 
+  const router = useRouter()
 
   const addItem = async(item,price) => {
     setCart([...cart, {item,price}])
@@ -23,6 +26,15 @@ export default function Home() {
   const removeHandler = async (index,price) => {
     setCart(cart.filter((_,i) => i !== index))
     setTotal(total - price)
+  }
+
+  const handleSubmit = async () => {
+    makeCart({
+      name: name,
+      items: cart,
+      total: total
+    })
+    router.push("/thankyou")
   }
 
   return (
@@ -57,7 +69,7 @@ export default function Home() {
         </div>
         <p className="text-2xl">Total: ${total}</p>
       </div>
-      <button type="submit" className="bg-[#EFE5DC] text-3xl px-4 py-1 rounded-xl mt-10">ORDER</button>
+      <button onClick={() => handleSubmit()} type="submit" className="bg-[#EFE5DC] text-3xl px-4 py-1 rounded-xl mt-10">ORDER</button>
     </div>
   );
 }
