@@ -11,5 +11,6 @@ export default defineSchema({
         name: v.string(),
         items: v.array(v.object({"item": v.string(), "price": v.float64(), "image": v.string()})),
         total: v.float64(),
+        done: v.boolean()
     }).index("by_name", ["name"])
 })

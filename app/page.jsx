@@ -63,7 +63,7 @@ export default function Home() {
           {cart.map(({item,price},index) => (
             <div key={index} className="flex justify-between">
               <p>{item}</p>
-              <button onClick={() => removeHandler(index,price)} className="bg-red-500 rounded-full p-1">
+              <button onClick={() => removeHandler(index,price)} className="bg-red-500 rounded-full p-1 outline-none border-none">
                 <RxCross2 />
               </button>
             </div>

@@ -12,7 +12,20 @@ export const makeOrders = mutation({
         await ctx.db.insert("cart", {
             name: args.name,
             items: args.items,
-            total: args.total
+            total: args.total,
+            done: false
+        })
+    }
+})
+
+export const changeOrder = mutation({
+    args:{
+        id: v.id("cart")
+    },
+    handler: async (ctx, args) => {
+        
+        const order = await ctx.db.patch(args.id,{
+            done: true
         })
     }
 })
