@@ -1,4 +1,16 @@
+"use client"
+
 import React from 'react'
+
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
 
 const Orders = ({id,name, total, items, handler}) => {
   return (
@@ -14,7 +26,21 @@ const Orders = ({id,name, total, items, handler}) => {
             ))}
         </div>
         <div className='flex justify-end pr-6 mb-4'>
-          <button onClick={() => handler(id, total)} className='bg-[#EFE5DC] px-4 py-2 rounded-xl text-2xl'>Done</button>
+        <Dialog>
+          <DialogTrigger><button className='bg-[#EFE5DC] px-4 py-2 rounded-xl text-2xl'>Done</button></DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle className='text-3xl'>Are you sure your done? Emma ? or whoever in the counter</DialogTitle>
+              <DialogDescription className="text-xl">
+                This action cannot be undone.
+              </DialogDescription>
+            </DialogHeader>
+            <DialogFooter>
+              <button onClick={() => handler(id, total)} className='bg-[#EFE5DC] px-4 py-2 rounded-xl text-2xl'>Yes</button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+          
         </div>
     </div>
   )
