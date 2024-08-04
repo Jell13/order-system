@@ -10,3 +10,15 @@ export const getMenu = query({
         return menuItems
     }
 })
+
+export const getMenuId = query({
+    args:{
+        id: v.id("menu")
+    },
+    handler: async (ctx, args) => {
+        
+        const getId = await ctx.db.get(args.id)
+        console.log(getId)
+        return getId
+    }
+})

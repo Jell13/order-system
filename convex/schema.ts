@@ -9,9 +9,6 @@ export default defineSchema({
     }).index("by_name", ["name"]),
     cart: defineTable({
         name: v.string(),
-        items: v.array(v.string()),
-        quantity: v.int64(),
         total: v.float64(),
-        imageUrl: v.array(v.string())
-    })
+    }).index("by_name", ["name"])
 })

@@ -2,17 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 
-const Items = ({id, name, price, image}) => {
-
-  const[cart, setCart] = useState([])
-
-  const handleClick = (name) => {
-    setCart([...cart,name])
-  }
-
-  useEffect(() => {
-    console.log(cart)
-  },[cart])
+const Items = ({id, name, price, image, addItem}) => {
 
   return (
     <div className='bg-[#EFE5DC] flex items-center justify-between px-4 py-4 rounded-xl'>
@@ -24,7 +14,7 @@ const Items = ({id, name, price, image}) => {
         <p className='bg-[#F5C5AA] px-8 py-1 rounded-xl'>
           ${price}.00
         </p>
-        <button className='px-2 py-1 bg-[#F5C5AA] rounded-xl' onClick={() => handleClick(name)}>Add to cart</button>
+        <button className='px-2 py-1 bg-[#F5C5AA] rounded-xl' onClick={() => addItem(name,price)}>Add to cart</button>
       </div>
       
     </div>
