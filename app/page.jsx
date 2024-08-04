@@ -6,6 +6,7 @@ import Items from "./components/Items";
 import { RxCross2 } from "react-icons/rx";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 export default function Home() {
 
@@ -20,6 +21,7 @@ export default function Home() {
 
   const addItem = async(item,price,image) => {
     setCart([...cart, {item,price,image}])
+    toast("Added to cart")
     setTotal(total + price)
   }
 

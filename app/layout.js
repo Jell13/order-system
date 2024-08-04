@@ -1,4 +1,5 @@
 import { Inter, Gloria_Hallelujah } from "next/font/google";
+import { Toaster } from "sonner";
 import "./globals.css";
 import { ConvexClientProvider } from "@/providers/ConvexClientProviders";
 import Navbar from "./components/Navbar";
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
             <Navbar/>
           </div>
           <div className="h-[calc(100vh-96px)] w-full">
+            <Toaster/>
             {children}
           </div>
         </ConvexClientProvider>
