@@ -21,7 +21,7 @@ const Orders = ({id,name, total, items, handler}) => {
             {items.map(({item, image}) => (
                 <div className='flex flex-col gap-2'>
                     <h4>{item}</h4>
-                    <img className='md:w-[200px] w-[100px]' src={image} alt="image" />
+                    <img className='md:w-[200px] w-[100px]' src={image} alt="image" loading='lazy'/>
                 </div>
             ))}
         </div>
